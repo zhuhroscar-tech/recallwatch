@@ -217,10 +217,29 @@ class SegmentedRecallReport:
 
     @staticmethod
     def from_dict(d: dict) -> "SegmentedRecallReport":
+        """Build a report from a decoded JSON dict.
+
+        A segment with zero queries is recorded as "unknown" recall.
+        Python's own ``json`` module round-trips that as the
+        non-standard ``NaN`` literal, but strict-JSON producers (a
+        different tool version, a hand-edited fixture, a report
+        re-serialized through a standards-compliant encoder that
+        rejects NaN) can only represent "no value" as JSON ``null``,
+        which decodes to Python ``None``. Treat ``None`` the same as
+        NaN here rather than letting it reach ``np.isnan`` in
+        ``diff_reports`` and raise an opaque ``TypeError`` -- this
+        class's whole purpose is comparing snapshot files that may
+        have been produced by a different run or tool, not just the
+        ones written by this same process a moment earlier.
+        """
+        segment_recall = {
+            seg: (float("nan") if val is None else val)
+            for seg, val in d["segment_recall"].items()
+        }
         return SegmentedRecallReport(
             k=d["k"],
             overall_recall=d["overall_recall"],
-            segment_recall=dict(d["segment_recall"]),
+            segment_recall=segment_recall,
             segment_counts=dict(d["segment_counts"]),
             n_queries=d["n_queries"],
         )
