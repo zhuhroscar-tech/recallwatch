@@ -1,3 +1,5 @@
+[![CI](https://github.com/zhuhroscar-tech/recallwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/zhuhroscar-tech/recallwatch/actions/workflows/ci.yml) [![Latest release](https://img.shields.io/github/v/release/zhuhroscar-tech/recallwatch?display_name=tag&sort=semver)](https://github.com/zhuhroscar-tech/recallwatch/releases/latest)
+
 [![English](https://img.shields.io/badge/English-555555?style=flat)](README.md) [![简体中文](https://img.shields.io/badge/简体中文-555555?style=flat)](README.zh-CN.md)
 
 # recallwatch
