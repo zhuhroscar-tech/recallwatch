@@ -47,4 +47,4 @@ python -m pip install -e ".[dev]"
 python -m pytest -v
 ```
 
-[测试](tests/test_core.py) · [CI](.github/workflows/ci.yml) · [MIT 许可证](LICENSE)
+[测试](tests/test_core.py) · [CI](.github/workflows/ci.yml) · [发布历史](CHANGELOG.md) · [MIT 许可证](LICENSE)

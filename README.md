@@ -49,4 +49,4 @@ python -m pip install -e ".[dev]"
 python -m pytest -v
 ```
 
-[Tests](tests/test_core.py) · [CI](.github/workflows/ci.yml) · [MIT license](LICENSE)
+[Tests](tests/test_core.py) · [CI](.github/workflows/ci.yml) · [Release history](CHANGELOG.md) · [MIT license](LICENSE)
