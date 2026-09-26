@@ -48,6 +48,17 @@ def test_changelog_contains_current_version():
     assert f"## v{version.group(1)}" in read_text("CHANGELOG.md")
 
 
+def test_package_resource_links_are_declared():
+    pyproject = read_text("pyproject.toml")
+    for required in [
+        '[project.urls]',
+        'Homepage = "https://github.com/zhuhroscar-tech/recallwatch"',
+        'Issues = "https://github.com/zhuhroscar-tech/recallwatch/issues"',
+        'Changelog = "https://github.com/zhuhroscar-tech/recallwatch/blob/main/CHANGELOG.md"',
+    ]:
+        assert required in pyproject
+
+
 def test_manifest_includes_release_metadata_and_tests():
     manifest = read_text("MANIFEST.in")
     for required in [
@@ -63,6 +74,7 @@ def test_manifest_includes_release_metadata_and_tests():
 
 def test_ci_builds_release_artifacts_and_codeql_is_configured():
     ci = read_text(".github/workflows/ci.yml")
+    assert 'tags: ["v*"]' in ci
     assert "python -m build" in ci
     assert "sha256sum * > SHA256SUMS.txt" in ci
     assert "actions/upload-artifact@v4" in ci

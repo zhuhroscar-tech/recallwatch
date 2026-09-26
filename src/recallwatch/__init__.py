@@ -8,4 +8,4 @@ This package provides:
   - snapshot + diff tooling to detect per-segment recall drift over time
 """
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"

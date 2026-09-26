@@ -2,6 +2,12 @@
 
 All notable changes to `recallwatch` are documented here.
 
+## v0.1.4 — 2026-09-26
+
+- Add package Homepage, Issues, and Changelog metadata for PyPI/wheel consumers.
+- Make release-tag CI coverage explicit for `v*` tags.
+- Add repository-contract coverage for package resource links and tag-triggered CI.
+
 ## v0.1.3 — 2026-09-24
 
 - Add release-history documentation and repository-contract checks for required project files, README links, CI release artifacts, CodeQL, and version/changelog parity.
